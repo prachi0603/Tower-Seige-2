@@ -13,16 +13,17 @@ class Block{
       World.add(world, this.body);
     }
     display(){
-      push();
       var pos= this.body.position;
       imageMode(CENTER);
       image(this.image, pos.x, pos.y, this.width, this.height);
 
       if(this.body.speed > 3){
-        translate(pos.x, pos.y);
-        this.visibility = this.visibility - 10;
-        tint( 225 ,this.visibility);
+         World.remove(world, this.body);
+        push();
+        this.visiblity = this.visiblity - 5;
+        tint(255,this.visiblity);
+        image(this.image, this.body.position.x, this.body.position.y,this.width, this.height);
+        pop();
       }
-      pop();
      }
     }
